@@ -3,4 +3,10 @@ Pkg.add(["IJulia", "Turing", "CSV", "DataFrames", "Plots", "StatsPlots", "Statis
 
 
 using IJulia
-installkernel("Julia")
+installkernel("Julia", "--depwarn=no")
+
+using Turing
+using StatsPlots
+using DataFrames
+using Logging
+using CSV
