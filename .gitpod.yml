@@ -8,6 +8,7 @@ tasks:
       julia dev/install_IJulia.jl &&
       gp sync-done dev_dependencies
   - name: Run JupyterLab
+    init: gp sync-await dev_dependencies
     command: |
       jupyter lab --no-browser --ip=0.0.0.0 --port=9999 --NotebookApp.token='' --NotebookApp.password=''
 
