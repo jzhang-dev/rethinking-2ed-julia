@@ -5,7 +5,7 @@ tasks:
   - name: Install development dependencies
     init: |
       pip install -v -r dev/requirements.txt &&
-      julia dev/install_IJulia.jl &&
+      julia dev/install_julia_dependencies.jl &&
       gp sync-done dev_dependencies
   - name: Run JupyterLab
     init: gp sync-await dev_dependencies
