@@ -1,0 +1,22 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Install development dependencies
+    init: |
+      pip install -v -r dev/requirements.txt &&
+      julia dev/install_IJulia.jl &&
+      gp sync-done dev_dependencies
+  - name: Run JupyterLab
+    init: gp sync-await dev_dependencies
+    command: |
+      jupyter lab --no-browser --ip=0.0.0.0 --port=9999 --NotebookApp.token='' --NotebookApp.password=''
+
+ports:
+  - name: JupyterLab
+    port: 9999
+    onOpen: notify
+
+vscode:
+  extensions:
+    - julialang.language-julia@0.12.3:lgRyBd8rjwUpMGG0C5GAig==
