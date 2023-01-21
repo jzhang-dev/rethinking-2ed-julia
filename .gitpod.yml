@@ -8,7 +8,6 @@ tasks:
       julia dev/install_IJulia.jl &&
       gp sync-done dev_dependencies
   - name: Run JupyterLab
-    init: gp sync-await dev_dependencies
     command: |
       jupyter lab --no-browser --ip=0.0.0.0 --port=9999 --NotebookApp.token='' --NotebookApp.password=''
 
@@ -19,4 +18,4 @@ ports:
 
 vscode:
   extensions:
-    - julialang.language-julia@0.12.3:lgRyBd8rjwUpMGG0C5GAig==
+    - julialang.language-julia@0.12.3
