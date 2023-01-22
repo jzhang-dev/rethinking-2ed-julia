@@ -1,2 +1,2 @@
-FROM gitpod/workspace-full:2022-09-11-15-11-40
-RUN brew install julia@1.8.2
+FROM gitpod/workspace-full:2023-01-16-03-31-28
+RUN brew install julia
