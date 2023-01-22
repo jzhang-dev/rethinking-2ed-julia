@@ -4,8 +4,12 @@ image:
 tasks:
   - name: Install development dependencies
     init: |
-      julia --project=. -e 'using Pkg; Pkg.instantiate()' &&
-      julia dev/install_julia_dependencies.jl &&
+      mkdir -p julia
+      wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.5-linux-x86_64.tar.gz -O julia/julia-1.8.5-linux-x86_64.tar.gz
+      tar xvzf julia/julia-1.8.5-linux-x86_64.tar.gz --directory julia/
+      export PATH=/workspace/rethinking-2ed-julia/julia/julia-1.8.5/bin/:$PATH
+      julia/julia-1.8.5/bin/julia --project=. -e 'using Pkg; Pkg.instantiate()' &&
+      julia/julia-1.8.5/bin/julia dev/install_julia_dependencies.jl &&
       pip install -v -r dev/requirements.txt &&
       gp sync-done dev_dependencies
   - name: Run JupyterLab
