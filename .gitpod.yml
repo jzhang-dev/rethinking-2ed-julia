@@ -23,5 +23,4 @@ ports:
 vscode:
   extensions:
     - julialang.language-julia
-    - singularitti.vscode-julia-formatter
     
